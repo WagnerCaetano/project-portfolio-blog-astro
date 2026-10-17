@@ -3,7 +3,6 @@ title: 'TypeScript Best Practices for Large Scale Applications'
 description: 'Learn essential TypeScript patterns and practices that help maintain code quality and developer productivity in large-scale applications.'
 date: 2024-04-05
 tags: ['TypeScript', 'Best Practices', 'Software Architecture']
-githubRepo: 'https://github.com/yourusername/typescript-patterns'
 published: true
 ---
 

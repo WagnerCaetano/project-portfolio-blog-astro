@@ -3,7 +3,6 @@ title: 'Getting Started with Astro: The Modern Web Framework'
 description: 'Discover why Astro is becoming the go-to framework for building fast, content-focused websites with zero JavaScript by default.'
 date: 2024-03-10
 tags: ['Astro', 'Web Development', 'Frontend', 'Performance']
-githubRepo: 'https://github.com/yourusername/astro-starter'
 published: true
 ---
 

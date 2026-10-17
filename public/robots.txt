@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wagnercaetano.github.io/project-portfolio-blog-astro/sitemap-index.xml

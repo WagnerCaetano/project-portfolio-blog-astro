@@ -11,6 +11,8 @@ interface Props {
   ogType?: 'website' | 'article';
   canonicalURL?: string;
   noindex?: boolean;
+  publishDate?: Date;
+  tags?: string[];
 }
 
 const {
@@ -20,6 +22,8 @@ const {
   ogType,
   canonicalURL,
   noindex,
+  publishDate,
+  tags,
 } = Astro.props;
 
 const siteName = 'Wagner Caetano - Senior Software Engineer';
@@ -31,11 +35,14 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
   <head>
     <SEO
       title={fullTitle}
+      headline={title}
       description={description}
       image={image}
       ogType={ogType}
       canonicalURL={canonicalURL}
       noindex={noindex}
+      publishDate={publishDate}
+      tags={tags}
     />
     <script is:inline>
       // Theme initialization - runs before page render to prevent flash

@@ -3,7 +3,6 @@ title: 'Building a RESTful API with Node.js and Express'
 description: 'Learn how to build a scalable RESTful API from scratch using Node.js, Express, and best practices for production-ready applications.'
 date: 2024-01-15
 tags: ['Node.js', 'Express', 'API', 'Backend']
-githubRepo: 'https://github.com/yourusername/nodejs-rest-api'
 published: true
 ---
 

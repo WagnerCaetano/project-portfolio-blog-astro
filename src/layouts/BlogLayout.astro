@@ -19,6 +19,9 @@ const {
   githubRepo,
 } = Astro.props;
 
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
 const formattedDate = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
   month: 'long',
@@ -32,6 +35,8 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
   image={image}
   ogType="article"
   canonicalURL={`/blog/${Astro.params.slug}`}
+  publishDate={publishDate}
+  tags={tags}
 >
   <article class="bg-white dark:bg-dark-surface">
     <!-- Header -->
@@ -99,7 +104,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
       <div class="container">
         <div class="max-w-4xl mx-auto">
           <a
-            href="/blog"
+            href={`${base}blog`}
             class="inline-flex items-center gap-2 text-primary-600 dark:text-blue-400 hover:text-primary-700 dark:hover:text-blue-300 font-medium transition-colors"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -8,8 +8,9 @@ import rehypePrettyCode from 'rehype-pretty-code';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://yourusername.github.io/portfolio-blog-astro',
-  integrations: [tailwind()],
+  site: 'https://wagnercaetano.github.io/project-portfolio-blog-astro',
+  base: '/project-portfolio-blog-astro/',
+  integrations: [tailwind(), sitemap()],
   output: 'static',
   compressHTML: true,
   build: {
