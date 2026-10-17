@@ -1,0 +1,67 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  ogType?: 'website' | 'article';
+  canonicalURL?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  image = '/og-image.jpg',
+  ogType = 'website',
+  canonicalURL,
+  noindex = false,
+} = Astro.props;
+
+const siteURL = 'https://yourusername.github.io/portfolio-blog-astro';
+const fullURL = canonicalURL ? `${siteURL}${canonicalURL}` : siteURL;
+const fullImageURL = image.startsWith('http') ? image : `${siteURL}${image}`;
+---
+
+<!-- Basic Meta Tags -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" />
+<meta name="generator" content={Astro.generator} />
+<meta name="description" content={description} />
+<meta name="author" content="Wagner Caetano" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={fullURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullImageURL} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={fullURL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={fullImageURL} />
+
+<!-- Canonical URL -->
+{canonicalURL && <link rel="canonical" href={fullURL} />}
+
+<!-- No Index (if needed) -->
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Structured Data - Person Schema -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Wagner Caetano",
+    "jobTitle": "Senior Software Engineer",
+    "url": siteURL,
+    "sameAs": [
+      "https://github.com/yourusername",
+      "https://www.linkedin.com/in/wagner-caetano/"
+    ]
+  }
+</script>

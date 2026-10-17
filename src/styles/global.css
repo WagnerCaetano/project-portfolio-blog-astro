@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  html:not(.dark) body {
+    @apply bg-light-bg text-light-text antialiased;
+  }
+  
+  html.dark body {
+    @apply bg-dark-bg text-dark-text antialiased;
+  }
+  
+  /* Smooth transition for theme switching */
+  body, .container, .section, .btn, nav, footer, article {
+    @apply transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+  
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-100 mb-8;
+  }
+  
+  .btn {
+    @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-secondary-100 text-secondary-700 hover:bg-secondary-200 dark:bg-secondary-800 dark:text-secondary-200 dark:hover:bg-secondary-700 focus:ring-secondary-500;
+  }
+  
+  /* Prose link styling */
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline underline-offset-2 decoration-primary-300 hover:decoration-primary-500 transition-colors;
+  }
+  
+  html.dark .prose a {
+    @apply text-blue-400 hover:text-blue-300 decoration-blue-900 hover:decoration-blue-800;
+  }
+  
+  /* Code block styling */
+  .prose pre {
+    @apply my-6 rounded-lg overflow-hidden shadow-lg bg-secondary-50 dark:bg-secondary-900 border border-secondary-200 dark:border-secondary-700;
+  }
+  
+  .prose code {
+    @apply bg-secondary-100 dark:bg-secondary-800 text-secondary-800 dark:text-secondary-200 px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+  
+  .prose pre code {
+    @apply bg-transparent text-inherit p-4 block overflow-x-auto;
+  }
+  
+  /* Table styling */
+  .prose table {
+    @apply my-6 w-full border-collapse border border-secondary-200 dark:border-secondary-700;
+  }
+  
+  .prose th {
+    @apply bg-secondary-100 dark:bg-secondary-800 font-semibold px-4 py-2 text-left;
+  }
+  
+  .prose td {
+    @apply border border-secondary-200 dark:border-secondary-700 px-4 py-2;
+  }
+  
+  /* Blockquote styling */
+  .prose blockquote {
+    @apply my-6 pl-4 border-l-4 border-primary-500 bg-secondary-50 dark:bg-secondary-800/50 italic text-secondary-700 dark:text-secondary-300 py-2 pr-4;
+  }
+  
+  /* List styling */
+  .prose ul, .prose ol {
+    @apply my-4 space-y-2;
+  }
+  
+  .prose li {
+    @apply ml-4;
+  }
+  
+  /* Heading styling */
+  .prose h1, .prose h2, .prose h3 {
+    @apply font-bold text-secondary-900 dark:text-secondary-100;
+  }
+  
+  .prose h1 {
+    @apply text-3xl mt-8 mb-4;
+  }
+  
+  .prose h2 {
+    @apply text-2xl mt-6 mb-3;
+  }
+  
+  .prose h3 {
+    @apply text-xl mt-4 mb-2;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
