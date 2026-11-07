@@ -6,18 +6,22 @@
   html {
     scroll-behavior: smooth;
   }
-  
-  html:not(.dark) body {
-    @apply bg-light-bg text-light-text antialiased;
+
+  body {
+    @apply bg-dark-bg text-dark-text antialiased font-sans;
+    background-attachment: fixed;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(82, 117, 152, 0.18), transparent 55%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(40, 54, 70, 0.35), transparent 50%);
   }
-  
-  html.dark body {
-    @apply bg-dark-bg text-dark-text antialiased;
-  }
-  
-  /* Smooth transition for theme switching */
+
   body, .container, .section, .btn, nav, footer, article {
     @apply transition-colors duration-300;
+  }
+
+  ::selection {
+    background: rgba(107, 140, 174, 0.35);
+    color: #eef3f8;
   }
 }
 
@@ -25,89 +29,87 @@
   .container {
     @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
   }
-  
+
   .section {
     @apply py-16 md:py-24;
   }
-  
+
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-100 mb-8;
+    @apply text-3xl md:text-4xl font-bold text-secondary-50 mb-8 tracking-tight;
   }
-  
+
+  .panel {
+    @apply rounded-xl border border-white/10 bg-dark-surface/55 backdrop-blur-md shadow-panel;
+  }
+
+  .chip {
+    @apply px-3 py-1 text-sm rounded-md border border-primary-700/50 bg-primary-900/40 text-primary-200;
+  }
+
   .btn {
-    @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200;
+    @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark-bg transition-all duration-200;
   }
-  
+
   .btn-primary {
-    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+    @apply btn bg-primary-500 text-white hover:bg-primary-400 focus:ring-primary-400;
   }
-  
+
   .btn-secondary {
-    @apply btn bg-secondary-100 text-secondary-700 hover:bg-secondary-200 dark:bg-secondary-800 dark:text-secondary-200 dark:hover:bg-secondary-700 focus:ring-secondary-500;
+    @apply btn border border-white/15 bg-white/5 text-secondary-100 hover:bg-white/10 focus:ring-primary-500;
   }
-  
-  /* Prose link styling */
+
   .prose a {
-    @apply text-primary-600 hover:text-primary-700 underline underline-offset-2 decoration-primary-300 hover:decoration-primary-500 transition-colors;
+    @apply text-primary-300 hover:text-primary-200 underline underline-offset-2 decoration-primary-700 hover:decoration-primary-400 transition-colors;
   }
-  
-  html.dark .prose a {
-    @apply text-blue-400 hover:text-blue-300 decoration-blue-900 hover:decoration-blue-800;
-  }
-  
-  /* Code block styling */
+
   .prose pre {
-    @apply my-6 rounded-lg overflow-hidden shadow-lg bg-secondary-50 dark:bg-secondary-900 border border-secondary-200 dark:border-secondary-700;
+    @apply my-6 rounded-lg overflow-hidden shadow-lg bg-secondary-900 border border-secondary-700;
   }
-  
+
   .prose code {
-    @apply bg-secondary-100 dark:bg-secondary-800 text-secondary-800 dark:text-secondary-200 px-1.5 py-0.5 rounded text-sm font-mono;
+    @apply bg-secondary-800 text-secondary-100 px-1.5 py-0.5 rounded text-sm font-mono;
   }
-  
+
   .prose pre code {
     @apply bg-transparent text-inherit p-4 block overflow-x-auto;
   }
-  
-  /* Table styling */
+
   .prose table {
-    @apply my-6 w-full border-collapse border border-secondary-200 dark:border-secondary-700;
+    @apply my-6 w-full border-collapse border border-secondary-700;
   }
-  
+
   .prose th {
-    @apply bg-secondary-100 dark:bg-secondary-800 font-semibold px-4 py-2 text-left;
+    @apply bg-secondary-800 font-semibold px-4 py-2 text-left;
   }
-  
+
   .prose td {
-    @apply border border-secondary-200 dark:border-secondary-700 px-4 py-2;
+    @apply border border-secondary-700 px-4 py-2;
   }
-  
-  /* Blockquote styling */
+
   .prose blockquote {
-    @apply my-6 pl-4 border-l-4 border-primary-500 bg-secondary-50 dark:bg-secondary-800/50 italic text-secondary-700 dark:text-secondary-300 py-2 pr-4;
+    @apply my-6 pl-4 border-l-4 border-primary-500 bg-secondary-800/50 italic text-secondary-200 py-2 pr-4;
   }
-  
-  /* List styling */
+
   .prose ul, .prose ol {
     @apply my-4 space-y-2;
   }
-  
+
   .prose li {
     @apply ml-4;
   }
-  
-  /* Heading styling */
+
   .prose h1, .prose h2, .prose h3 {
-    @apply font-bold text-secondary-900 dark:text-secondary-100;
+    @apply font-bold text-secondary-50;
   }
-  
+
   .prose h1 {
     @apply text-3xl mt-8 mb-4;
   }
-  
+
   .prose h2 {
     @apply text-2xl mt-6 mb-3;
   }
-  
+
   .prose h3 {
     @apply text-xl mt-4 mb-2;
   }
@@ -116,5 +118,12 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-float {
+      animation: none !important;
+    }
   }
 }

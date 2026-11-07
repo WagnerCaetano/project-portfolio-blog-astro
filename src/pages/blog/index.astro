@@ -13,21 +13,22 @@ const publishedPosts = allPosts
   title="Blog"
   description="Technical articles and tutorials about software development, programming, and technology."
   canonicalURL="/blog"
+  geometricWeb
 >
-  <section class="bg-gradient-to-b from-primary-50 to-white dark:from-dark-surface dark:to-dark-bg py-16 md:py-24">
+  <section class="py-16 md:py-24">
     <div class="container">
-      <div class="max-w-3xl mx-auto text-center">
-        <h1 class="text-4xl md:text-5xl font-bold text-secondary-900 dark:text-secondary-100 mb-6">
+      <div class="max-w-3xl mx-auto text-center animate-fade-up">
+        <h1 class="text-4xl md:text-5xl font-bold text-secondary-50 mb-6 tracking-tight">
           Blog
         </h1>
-        <p class="text-xl text-secondary-600 dark:text-secondary-300">
+        <p class="text-xl text-secondary-300">
           Technical articles, tutorials, and insights from my journey as a software engineer.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="section bg-white dark:bg-dark-surface">
+  <section class="section pt-0">
     <div class="container">
       {publishedPosts.length > 0 ? (
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -44,8 +45,8 @@ const publishedPosts = allPosts
           ))}
         </div>
       ) : (
-        <div class="max-w-2xl mx-auto text-center py-12">
-          <p class="text-lg text-secondary-600">
+        <div class="max-w-2xl mx-auto text-center py-12 panel p-8">
+          <p class="text-lg text-secondary-300">
             No blog posts yet. Check back soon for new content!
           </p>
         </div>

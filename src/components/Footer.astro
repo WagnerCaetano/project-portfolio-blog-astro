@@ -5,48 +5,45 @@ const base = import.meta.env.BASE_URL.endsWith('/')
   : `${import.meta.env.BASE_URL}/`;
 ---
 
-<footer class="bg-light-footer dark:bg-dark-footer text-white py-12">
+<footer class="border-t border-white/10 bg-dark-footer/80 backdrop-blur-md text-secondary-200 py-12">
   <div class="container">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- About -->
       <div>
-        <h3 class="text-lg font-semibold mb-4">Wagner Caetano</h3>
-        <p class="text-secondary-300 dark:text-secondary-400">
+        <h3 class="text-lg font-semibold text-secondary-50 mb-4">Wagner Caetano</h3>
+        <p class="text-secondary-400">
           Senior Software Engineer with a passion for designing and developing innovative software solutions.
         </p>
       </div>
 
-      <!-- Quick Links -->
       <div>
-        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+        <h3 class="text-lg font-semibold text-secondary-50 mb-4">Quick Links</h3>
         <ul class="space-y-2">
           <li>
-            <a href={base} class="text-secondary-300 dark:text-secondary-400 hover:text-white dark:hover:text-white transition-colors">
+            <a href={base} class="text-secondary-400 hover:text-primary-200 transition-colors">
               About
             </a>
           </li>
           <li>
-            <a href={`${base}blog`} class="text-secondary-300 dark:text-secondary-400 hover:text-white dark:hover:text-white transition-colors">
+            <a href={`${base}blog`} class="text-secondary-400 hover:text-primary-200 transition-colors">
               Blog
             </a>
           </li>
           <li>
-            <a href={`${base}#contact`} class="text-secondary-300 dark:text-secondary-400 hover:text-white dark:hover:text-white transition-colors">
+            <a href={`${base}#contact`} class="text-secondary-400 hover:text-primary-200 transition-colors">
               Contact
             </a>
           </li>
         </ul>
       </div>
 
-      <!-- Social Links -->
       <div>
-        <h3 class="text-lg font-semibold mb-4">Connect</h3>
+        <h3 class="text-lg font-semibold text-secondary-50 mb-4">Connect</h3>
         <div class="flex space-x-4">
           <a
             href="https://github.com/WagnerCaetano"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-secondary-300 dark:text-secondary-400 hover:text-white dark:hover:text-white transition-colors"
+            class="text-secondary-400 hover:text-primary-200 transition-colors"
             aria-label="GitHub"
           >
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -61,7 +58,7 @@ const base = import.meta.env.BASE_URL.endsWith('/')
             href="https://www.linkedin.com/in/wagner-caetano/"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-secondary-300 dark:text-secondary-400 hover:text-white dark:hover:text-white transition-colors"
+            class="text-secondary-400 hover:text-primary-200 transition-colors"
             aria-label="LinkedIn"
           >
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -74,8 +71,7 @@ const base = import.meta.env.BASE_URL.endsWith('/')
       </div>
     </div>
 
-    <!-- Copyright -->
-    <div class="border-t border-secondary-800 dark:border-secondary-700 mt-8 pt-8 text-center text-secondary-400 dark:text-secondary-500">
+    <div class="border-t border-white/10 mt-8 pt-8 text-center text-secondary-500">
       <p>&copy; {currentYear} Wagner Caetano. All rights reserved.</p>
     </div>
   </div>
